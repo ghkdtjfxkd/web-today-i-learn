@@ -115,6 +115,13 @@ main {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.gallery-grid img:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
 }
 
 /* 인생 작품 카드 */
@@ -368,4 +375,93 @@ footer {
   --card-bg-color: #fafafa;
   --divider-color: #e8e8e8;
   --font-default-color: #333;
+}
+
+/* ID 선택자 - 갤러리 섹션 강조 */
+#gallery {
+  background-color: var(--hero-bg-color);
+  border-radius: 12px;
+  padding: 48px 24px;
+  margin: 0 -24px;
+}
+
+/* ID 선택자 - TIL 섹션 강조 */
+#til {
+  border-bottom: none;
+}
+
+/* 다크 모드 토글 버튼 */
+.dark-toggle {
+  background: none;
+  border: 1px solid var(--divider-color);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px 10px;
+  transition: background-color 0.2s;
+  color: var(--font-default-color);
+}
+
+.dark-toggle:hover {
+  background-color: var(--hero-bg-color);
+}
+
+/* 다크 모드 */
+body.dark-mode {
+  --nav-bg-color: #1e1e1e;
+  --hero-bg-color: #2a2a2a;
+  --card-bg-color: #252525;
+  --divider-color: #3d3d3d;
+  --font-default-color: #e0e0e0;
+  background-color: #181818;
+}
+
+body.dark-mode .profile-info .tagline,
+body.dark-mode .section-desc,
+body.dark-mode .content-section > p,
+body.dark-mode .work-info p,
+body.dark-mode .til-item p,
+body.dark-mode .til-item time {
+  color: #aaa;
+}
+
+body.dark-mode .info-table th {
+  color: #bbb;
+}
+
+body.dark-mode .info-table td {
+  color: #ddd;
+}
+
+body.dark-mode .til-form input,
+body.dark-mode .til-form textarea {
+  background-color: #2d2d2d;
+  color: var(--font-default-color);
+}
+
+/* 갤러리 이미지 확대 오버레이 */
+#gallery-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+#gallery-overlay.active {
+  display: flex;
+}
+
+#gallery-overlay img {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
